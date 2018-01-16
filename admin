@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body class="w3-content" style="max-width:1300px">
+<script>
+function createDynamicURL()
+{
+    //The variable to be returned
+    var URL='https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz';
+
+    //The variables containing the respective IDs
+    var City='';
+	City=document.getElementById("myCity").value;
+	URL+="&City===%27"+City+"%27";
+    var Status='';
+	Status=document.getElementById("myStatus").value;
+	//alert(Status);
+    if(Status!="All"){
+	  URL+="&S="+Status;
+	}
+	var Visit='';
+	Visit=document.getElementById("myVisited").value;
+    if(Visit!="All"){
+	  URL+="&P="+Visit;
+	}
+ 	//alert (URL);
+    return URL;
+}
+function RedirectURL()
+{
+    window.location= createDynamicURL();
+	//alert(createDynamicURL());
+}
+</script>
+<!-- First Grid: Logo & About 49A8BC -->
+<div class="w3-row">
+ 
+   <div class="w3-half w3-light-green w3-container w3-center" style="height:700px">
+    <div class="w3-padding-64">
+      <h1>Jowla Map</h1>
+    </div>
+    <div >
+		<form>
+		<div>
+		City:
+		<select id="myCity">
+		  <option value="Plano">Plano</option>
+		  <option value="Allen">Allen</option>		  
+		  <option value="Frisco">Frisco</option>
+		  <option value="Garland">Garland</option>
+		  <option value="Little Elm">Little Elm</option>		  
+		  <option value="McKinney">McKinney</option>
+		  <option value="Melissa">Melissa</option>
+		  <option value="Mesquite">Mesquite</option>
+		  <option value="Murphy">Murphy</option>		  
+		  <option value="Parker">Parker</option>
+		  
+		  <option value="Prosper">Prosper</option>
+		  <option value="Richardson">Richardson</option>
+		  <option value="Rowlett">Rowlett</option>
+		  <option value="Sachse">Sachse</option>
+		  <option value="The Colony">The Colony</option>	
+		  <option value="Wylie">Wylie</option>
+		</select>
+ 
+		</div>
+		<br>
+		<div >
+		Status:
+		<select id="myStatus">
+		  <option value="All">All</option>
+		  <option value="S">Students</option>
+		  <option value="K">Khususi</option>
+		  <option value="F">Follow Ups</option>		  
+		</select>
+		</div>
+		<br>
+		<div >		
+		Visited:
+		<select id="myVisited">
+		  <option value="All">All</option>
+		  <option value="0">Not Yet Visited</option>
+		  <option value="6">More than 180 days</option>
+		  <option value="3">More than 90 days</option>
+		  <option value="1">More than 30 days</option>	  
+		</select>	
+		</div>
+		<br>
+		</form>
+		
+		<br><br>
+		<a href="#" onclick="RedirectURL();return false;" > Display Map </a>
+    </div>
+  </div>  
+
+</div>
+
+</body>
+</html> 
