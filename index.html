@@ -1,86 +1,170 @@
 <!DOCTYPE html>
-
 <html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<head>
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=en"></script>
+</head>
 <body class="w3-content" style="max-width:1300px">
-
+<script>
+function createDynamicURL()
+{
+    //The variable to be returned
+    var URL='https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz';
+    //The variables containing the respective IDs
+    var City='';
+	City=document.getElementById("myCity").value;
+	URL+="&City===%27"+City+"%27";
+    var Status='';
+	Status=document.getElementById("myStatus").value;
+	//alert(Status);
+    if(Status!="All"){
+	  URL+="&S="+Status;
+	}
+	var Visit='';
+	Visit=document.getElementById("myVisited").value;
+    if(Visit!="All"){
+	  URL+="&P="+Visit;
+	}
+ 	//alert (URL);
+    return URL;
+}
+function RedirectURL()
+{
+    window.location= createDynamicURL();
+	//alert(createDynamicURL());
+}
+</script>
 <!-- First Grid: Logo & About 49A8BC -->
 <div class="w3-row">
-  <div class="w3-half w3-light-green w3-container w3-center" style="height:700px">
-    <div class="w3-padding-64">
-      <h1>Plano</h1>
+ 
+   <div class="w3-half w3-light-green w3-container w3-center" style="height:600px">
+   
+    <div class="w3-padding-4">
+      <h2>Jowla Map</h2>
     </div>
     <div >
-      <a href="https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz&City==='Plano'" target="_blank"  class="w3-button w3-block w3-hover-blue-grey w3-padding">All Plano</a>
-      <a href="https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz&City==='Plano'&P=0" target="_blank"  class="w3-button w3-block w3-hover-blue-grey w3-padding">Not yet visited</a>
-      <a href="https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz&City==='Plano'&S=S" target="_blank"  class="w3-button w3-block w3-hover-blue-grey w3-padding">Students</a>
-	  <a href="https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz&City==='Plano'&S=K" target="_blank"  class="w3-button w3-block w3-hover-blue-grey w3-padding">Khususi</a>
-	  <a href="https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz&City==='Plano'&S=F" target="_blank"  class="w3-button w3-block w3-hover-blue-grey w3-padding">Follow Ups</a>
-	 <!-- <a href="https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz&City==='Plano'&S=W" target="_blank"  class="w3-button w3-block w3-hover-blue-grey w3-padding">Old Workers</a>-->
-          <a href="https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz&City==='Plano'&P=3" target="_blank"  class="w3-button w3-block w3-hover-blue-grey w3-padding">Visited more 90 days ago</a>
-
+	
+		<form>
+		<div>
+		City:
+		<select id="myCity">
+		  <option value="Plano">Plano</option>
+		  <option value="Allen">Allen</option>
+		  <option value="Dallas">Dallas</option>		  
+		  <option value="Denton">Denton</option>
+		  <option value="Frisco">Frisco</option>
+		  <option value="Garland">Garland</option>
+		  <option value="Little Elm">Little Elm</option>		  
+		  <option value="McKinney">McKinney</option>
+		  <option value="Melissa">Melissa</option>
+		  <option value="Mesquite">Mesquite</option>
+		  <option value="Murphy">Murphy</option>		  
+		  <option value="Parker">Parker</option>		  
+		  <option value="Prosper">Prosper</option>
+		  <option value="Richardson">Richardson</option>
+		  <option value="Rowlett">Rowlett</option>
+		  <option value="Sachse">Sachse</option>
+		  <option value="The Colony">The Colony</option>	
+		  <option value="Wylie">Wylie</option>
+		</select> 
+		</div>
+		<br>
+		<div >
+		Status:
+		<select id="myStatus">
+		  <option value="All">All</option>
+		  <option value="S">Students</option>
+		  <option value="K">Khususi</option>
+		  <option value="F">Follow Ups</option>		  
+		</select>
+		</div>
+		<br>
+		<div >		
+		Visited:
+		<select id="myVisited">
+		  <option value="All">All</option>
+		  <option value="0">Not Yet Visited</option>
+		  <option value="6">More than 180 days</option>
+		  <option value="3">More than 90 days</option>
+		  <option value="1">More than 30 days</option>	  
+		</select>	
+		</div>
+		<br>
+		</form>				
+		<!--<a href="#" onclick="RedirectURL();return false;" > Display Map </a> -->
+		<button onclick="RedirectURL();return false;" > Display Map</button>
     </div>
-  </div>  <div class="w3-half w3-cyan w3-container w3-center" style="height:700px">
-    <div class="w3-padding-32">
-      <h2>DFW</h2>
-    </div>
-    <div >
-      <a href="https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz&City==='Allen'" target="_blank"  class="w3-button w3-cyan w3-block w3-hover-blue-grey w3-padding">Allen</a>
-      <a href="https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz&City==='Dallas'" target="_blank"  class="w3-button w3-cyan w3-block w3-hover-blue-grey w3-padding">Dallas</a>
-      <a href="https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz&City==='Denton'" target="_blank"  class="w3-button w3-cyan w3-block w3-hover-blue-grey w3-padding">Denton</a>
-      <a href="https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz&City==='Frisco'" target="_blank"  class="w3-button w3-cyan w3-block w3-hover-blue-grey w3-padding">Frisco</a>
-      <a href="https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz&City==='Garland'" target="_blank"  class="w3-button w3-cyan w3-block w3-hover-blue-grey w3-padding">Garland</a>
-      <a href="https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz&City==='Little Elm'" target="_blank"  class="w3-button w3-cyan w3-block w3-hover-blue-grey w3-padding">Little Elm</a>
-      <a href="https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz&City==='McKinney'" target="_blank"  class="w3-button w3-cyan w3-block w3-hover-blue-grey w3-padding">McKinney</a>	    
-      <a href="https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz&City==='Melissa'" target="_blank"  class="w3-button w3-cyan w3-block w3-hover-blue-grey w3-padding">Melissa</a>	    
-      <a href="https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz&City==='Mesquite'" target="_blank"  class="w3-button w3-cyan w3-block w3-hover-blue-grey w3-padding">Mesquite</a>	    
-      <a href="https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz&City==='Murphy'" target="_blank"  class="w3-button w3-cyan w3-block w3-hover-blue-grey w3-padding">Murphy</a>
-      <a href="https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz&City==='Prosper'" target="_blank"  class="w3-button w3-cyan w3-block w3-hover-blue-grey w3-padding">Prosper</a>
-      <a href="https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz&City==='Richardson'" target="_blank"  class="w3-button w3-cyan w3-block w3-hover-blue-grey w3-padding">Richardson</a>
-      <a href="https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz&City==='Rowlett'" target="_blank"  class="w3-button w3-cyan w3-block w3-hover-blue-grey w3-padding">Rowlett</a>	    
-      <a href="https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz&City==='Sachse'" target="_blank"  class="w3-button w3-cyan w3-block w3-hover-blue-grey w3-padding">Sachse</a>	    
-      <a href="https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz&City==='The Colony'" target="_blank"  class="w3-button w3-cyan w3-block w3-hover-blue-grey w3-padding">The Colony</a>	    
-      <a href="https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz&City==='Wylie'" target="_blank"  class="w3-button w3-cyan w3-block w3-hover-blue-grey w3-padding">Wylie</a>
-	  <a href="https://dailyfikr.github.io/MAIN/index.html?key=1FMGjoxsHLNOn4Kic0UxsXdi_dDb-2_JMJ75BYwMl" target="_blank"  class="w3-button w3-cyan w3-block w3-hover-blue-grey w3-padding">Denton County</a>
-	  <a href="https://dailyfikr.github.io/MAIN/index.html?key=1lgEt2k050mIpXi6Qwgj7af0geFVoCo-9Fq7nay5U" target="_blank"  class="w3-button w3-cyan w3-block w3-hover-blue-grey w3-padding">Tarrant County</a>
-
-    </div>
-  </div>
-  
-  <!--div class="w3-half w3-blue-grey w3-container" style="height:700px">
-    <div class="w3-padding-64 w3-center">
-      <h1>About Me</h1>
-      <img src="/w3images/avatar3.png" class="w3-margin w3-circle" alt="Person" style="width:50%">
-      <div class="w3-left-align w3-padding-large">
-        <p>Lorem ipusm sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-        <p>Lorem ipusm sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-      </div>
-    </div>
-  </div-->
+	<br> 
+    <div class="w3-padding-8">
+      <h4>Enter New Address </h4>
+    </div>	
+   <div>
+		<input type="text" id="name" placeholder="Name" style="width:50%;"  />  <br> 
+		<input type="text" id="autocomplete" placeholder="Address" onFocus="geolocate()" onfocusout ="geolocate()" style="width:100%;" />   <br>
+		<input type="text" id="apt" placeholder="Apt / Suite "  />   <br>
+		<input type="text" id="data" hidden=true/><br>
+		<button onclick="myFunction()">Add Address</button>
+   </div>	
+  </div>  
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  		<script>
+			function myFunction() {
+			geolocate();	
+			url="https://docs.google.com/forms/d/e/1FAIpQLSe_TQfBBhpLky9XyTz0SuSsJpcgfF61pS8onUX4RgQxEITOpA/formResponse?&entry.647159166=DFW&entry.607683347=New+Address&entry.781718851=";
+			url=url+document.getElementById('data').value;
+			url=url+"&submit=Submit";
+			//alert(url);
+			window.open(url);
+			}
+		  var input = document.getElementById('autocomplete');
+		  var autocomplete = new google.maps.places.Autocomplete(input);
+		  var place = autocomplete.getPlace();
+		  
+		  function geolocate() {
+			//alert(place);
+			var newplace = autocomplete.getPlace();
+			var components = newplace.address_components;			
+			var county = null;
+			var city = null;
+			var zip = null;
+			var sub = null;
+			var d = new Date();  
+			var ID = "MAN"+d.getFullYear()+(d.getMonth()+1)+d.getDate()+d.getHours()+d.getMinutes();
+			var add = newplace.formatted_address;
+			add=add.replace(", USA","");
+			var name =document.getElementById('name').value;
+			var apt =document.getElementById('apt').value;
+			var lat=newplace.geometry.location.lat();
+			var lng=newplace.geometry.location.lng();
+			for (var i = 0, component; component = components[i]; i++) {
+				console.log(component);
+				if (component.types[0] == 'administrative_area_level_2') {
+					county = component['long_name'];
+				}
+				if (component.types[0] == 'locality') {
+					city = component['long_name'];
+				}
+				if (component.types[0] == 'postal_code') {
+					zip = component['long_name'];
+				}				
+				if (component.types[0] == 'neighborhood') {
+					sub = component['long_name'];
+				}
+			}
+			if (apt != "")
+			{
+				lat=lat+Math.random()/20000;
+				lng=lng+Math.random()/20000;
+				add= add + " APT "+apt;
+			}
+			//document.getElementById('latitude').value = newplace.geometry.location.lat();
+			//document.getElementById('longtitude').value = newplace.geometry.location.lng();
+			document.getElementById('data').value = county+"~"+name+"~"+add+"~"+lat+"~"+lng+"~"+city+"~"+zip+"~"+sub+"~"+ID+"~";
+			//document.getElementById('placeid').value = newplace.place_id;
+		  }
+	</script>
 </div>
-<!--
-
-<h1>Main</h1>
-
-  	<div class="w3-third">
-    
-    </div>
-  	<div class="w3-third">
-      <a href="V3.html?DB=GH&Name=Parvez Ansari&ID=253692&Sts=Khususi,Student" target="_blank" >
-      <h3> GH2</h3></a>
-    </div>
-	  	<div class="w3-third">
-      <a href="https://dailyfikr.github.io/PROD/index.html?key=1PKrTw5__lW0gygeLsxH0cfg7Um-e-J07n-f-8c4" target="_blank" >
-      <h3> GH3</h3></a>
-    </div>
-	<br>
-
-<a href="https://dailyfikr.github.io/PROD/index.html?key=1PKrTw5__lW0gygeLsxH0cfg7Um-e-J07n-f-8c4" target="_blank" >GH</a>
-<br>
-
-<a href="4Visits.html?DB=DFW&Name=Parvez Ansari&ID=253692&Sts=Khususi,Student" target="_blank" >DF</a>
--->
 </body>
 </html> 
