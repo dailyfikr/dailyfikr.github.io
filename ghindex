@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<head>
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=en"></script>
+</head>
+<body class="w3-content" style="max-width:1300px">
+<script>
+function createDynamicURL()
+{
+    //The variable to be returned
+    var URL='https://dailyfikr.github.io/PROD/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz';
+    //The variables containing the respective IDs
+    var City='';
+	City=document.getElementById("myCity").value;
+	URL+="&City===%27"+City+"%27";
+    var Status='';
+	Status=document.getElementById("myStatus").value;
+	//alert(Status);
+    if(Status!="All"){
+	  URL+="&S="+Status;
+	}
+	var Visit='';
+	Visit=document.getElementById("myVisited").value;
+    if(Visit!="All"){
+	  URL+="&P="+Visit;
+	}
+ 	//alert (URL);
+    return URL;
+}
+function RedirectURL()
+{
+    window.location= createDynamicURL();
+	//alert(createDynamicURL());
+}
+</script>
+<!-- First Grid: Logo & About 49A8BC -->
+<div class="w3-row">
+ 
+   <div class="w3-half w3-light-green w3-container w3-center" style="height:600px">
+   
+    <div class="w3-padding-4">
+      <h2>Jowla Map</h2>
+    </div>
+    <div >
+	
+		<form>
+		<div>
+		City:
+		<select id="myCity">
+		  <option value="Plano">Plano</option>
+		  <option value="Allen">Allen</option>
+		  <option value="Arlington">Arlington</option>	
+		  <option value="Dallas">Dallas</option>		  
+		  <option value="Denton">Denton</option>
+		  <option value="Duncanville">Duncanville</option>	
+		  <option value="Frisco">Frisco</option>
+		  <option value="Garland">Garland</option>
+		  <option value="Grand Prairie">Grand Prairie</option>
+		  <option value="Little Elm">Little Elm</option>
+		  <option value="Mansfield">Mansfield</option>
+		  <option value="McKinney">McKinney</option>
+		  <option value="Melissa">Melissa</option>
+		  <option value="Mesquite">Mesquite</option>
+		  <option value="Murphy">Murphy</option>		  
+		  <option value="Parker">Parker</option>		  
+		  <option value="Prosper">Prosper</option>
+		  <option value="Richardson">Richardson</option>
+		  <option value="Rowlett">Rowlett</option>
+		  <option value="Sachse">Sachse</option>
+		  <option value="St Paul">Sachse</option>	
+		  <option value="The Colony">The Colony</option>	
+		  <option value="Wylie">Wylie</option>
+		</select> 
+		</div>
+		<br>
+		<div >
+		Status:
+		<select id="myStatus">
+		  <option value="All">All</option>
+		  <option value="S">Students</option>
+		  <option value="K">Khususi</option>
+		  <option value="F">Follow Ups</option>		  
+		</select>
+		</div>
+		<br>
+		<div >		
+		Visited:
+		<select id="myVisited">
+		  <option value="All">All</option>
+		  <option value="0">Not Yet Visited</option>
+		  <option value="6">More than 180 days</option>
+		  <option value="3">More than 90 days</option>
+		  <option value="1">More than 30 days</option>	  
+		</select>	
+		</div>
+		<br>
+		</form>				
+		<!--<a href="#" onclick="RedirectURL();return false;" > Display Map </a> -->
+		<button onclick="RedirectURL();return false;" > Display Map</button>
+    </div>
+	<br> 
+    <div class="w3-padding-8">
+      <h4>Enter New Address </h4>
+    </div>	
+   <div>
+		<input type="text" id="name" placeholder="Name" style="width:50%;"  />  <br> 
+		<input type="text" id="autocomplete" placeholder="Address" onFocus="geolocate()" onfocusout ="geolocate()" style="width:100%;" />   <br>
+		<input type="text" id="apt" placeholder="Apt / Suite "  />   <br>
+		<input type="text" id="data" hidden=true/><br>
+		<button onclick="myFunction()">Add Address</button>
+   </div>	
+  </div>  
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  		<script>
+			function myFunction() {
+			geolocate();	
+			url="https://docs.google.com/forms/d/e/1FAIpQLSe_TQfBBhpLky9XyTz0SuSsJpcgfF61pS8onUX4RgQxEITOpA/formResponse?&entry.647159166=DFW&entry.607683347=New+Address&entry.781718851=";
+			url=url+document.getElementById('data').value;
+			url=url+"&submit=Submit";
+			//alert(url);
+			window.open(url);
+			}
+		  var input = document.getElementById('autocomplete');
+		  var autocomplete = new google.maps.places.Autocomplete(input);
+		  var place = autocomplete.getPlace();
+		  
+		  function geolocate() {
+			//alert(place);
+			var newplace = autocomplete.getPlace();
+			var components = newplace.address_components;			
+			var county = null;
+			var city = null;
+			var zip = null;
+			var sub = null;
+			var d = new Date();  
+			var ID = "MAN"+d.getFullYear()+(d.getMonth()+1)+d.getDate()+d.getHours()+d.getMinutes();
+			var add = newplace.formatted_address;
+			add=add.replace(", USA","");
+			var name =document.getElementById('name').value;
+			var apt =document.getElementById('apt').value;
+			var lat=newplace.geometry.location.lat();
+			var lng=newplace.geometry.location.lng();
+			for (var i = 0, component; component = components[i]; i++) {
+				console.log(component);
+				if (component.types[0] == 'administrative_area_level_2') {
+					county = component['long_name'];
+				}
+				if (component.types[0] == 'locality') {
+					city = component['long_name'];
+				}
+				if (component.types[0] == 'postal_code') {
+					zip = component['long_name'];
+				}				
+				if (component.types[0] == 'neighborhood') {
+					sub = component['long_name'];
+				}
+			}
+			if (apt != "")
+			{
+				lat=lat+Math.random()/20000;
+				lng=lng+Math.random()/20000;
+				add= add + " APT "+apt;
+			}
+			//document.getElementById('latitude').value = newplace.geometry.location.lat();
+			//document.getElementById('longtitude').value = newplace.geometry.location.lng();
+			document.getElementById('data').value = county+"~"+name+"~"+add+"~"+lat+"~"+lng+"~"+city+"~"+zip+"~"+sub+"~"+ID+"~";
+			//document.getElementById('placeid').value = newplace.place_id;
+		  }
+	</script>
+</div>
+</body>
+</html> 
