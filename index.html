@@ -15,7 +15,9 @@ function createDynamicURL()
     //The variables containing the respective IDs
     var City='';
 	City=document.getElementById("myCity").value;
-	URL+="&City===%27"+City+"%27";
+	if(City!="All"){
+		URL+="&City===%27"+City+"%27";
+	}
     var Status='';
 	Status=document.getElementById("myStatus").value;
 	//alert(Status);
@@ -51,6 +53,7 @@ function RedirectURL()
 		City:
 		<select id="myCity">
 		  <option value="Plano">Plano</option>
+		  <option value="All">All</option>
 		  <option value="Allen">Allen</option>
 		  <option value="Arlington">Arlington</option>	
 		  <option value="Dallas">Dallas</option>		  
