@@ -126,7 +126,15 @@ function RedirectURL()
 			var zip = null;
 			var sub = null;
 			var d = new Date();  
-			var ID = "MAN"+d.getFullYear()+(d.getMonth()+1)+d.getDate()+d.getHours()+d.getMinutes();
+			var temp = null;
+			temp = d.getHours();
+			temp = ("0" + temp).slice(-2);
+			var ID = "MAN"+d.getFullYear()
+				+('0' + (d.getMonth()+1)).slice(-2)
+				+('0' + (d.getDate()+1)).slice(-2)
+				+('0' + (d.getHours()+1)).slice(-2)
+				+('0' + (d.getMinutes()+1)).slice(-2)
+				+('0' + (d.getSeconds()+1)).slice(-2);
 			var add = newplace.formatted_address;
 			add=add.replace(", USA","");
 			var name =document.getElementById('name').value;
