@@ -131,10 +131,10 @@ function RedirectURL()
 			temp = ("0" + temp).slice(-2);
 			var ID = "MAN"+d.getFullYear()
 				+('0' + (d.getMonth()+1)).slice(-2)
-				+('0' + (d.getDate()+1)).slice(-2)
-				+('0' + (d.getHours()+1)).slice(-2)
-				+('0' + (d.getMinutes()+1)).slice(-2)
-				+('0' + (d.getSeconds()+1)).slice(-2);
+				+('0' + (d.getDate())).slice(-2)
+				+('0' + (d.getHours())).slice(-2)			
+				+('0' + (d.getMinutes())).slice(-2)
+				+('0' + (d.getSeconds())).slice(-2);
 			var add = newplace.formatted_address;
 			add=add.replace(", USA","");
 			var name =document.getElementById('name').value;
