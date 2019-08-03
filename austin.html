@@ -11,7 +11,7 @@
 function createDynamicURL()
 {
     //The variable to be returned
-    var URL='https://dailyfikr.github.io/SAN/index.html?key=1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz‘
+    var URL='https://dailyfikr.github.io/SAN/index.html?key=1vgbRfRFBBCgZ9V0CNEmAUCAJX4C2ClrYpVPaAEPO';
     //The variables containing the respective IDs
     var City='';
 	City=document.getElementById("myCity").value;
@@ -129,7 +129,15 @@ function RedirectURL()
 			var zip = null;
 			var sub = null;
 			var d = new Date();  
-			var ID = "MAN"+d.getFullYear()+(d.getMonth()+1)+d.getDate()+d.getHours()+d.getMinutes();
+			var temp = null;
+			temp = d.getHours();
+			temp = ("0" + temp).slice(-2);
+			var ID = "MAN"+d.getFullYear()
+				+('0' + (d.getMonth()+1)).slice(-2)
+				+('0' + (d.getDate())).slice(-2)
+				+('0' + (d.getHours())).slice(-2)			
+				+('0' + (d.getMinutes())).slice(-2)
+				+('0' + (d.getSeconds())).slice(-2);
 			var add = newplace.formatted_address;
 			add=add.replace(", USA","");
 			var name =document.getElementById('name').value;
