@@ -123,10 +123,14 @@ function createMarker(map, location, infowindow) {
     lat: parseFloat(location.latitude),
     lng: parseFloat(location.longtitude)
   };
+  var markerurl="http://maps.google.com/mapfiles/kml/paddle/"+location.marker+".png";
   var marker = new google.maps.Marker({	  
     position: position,
     map: map,
     title: location.name,
+    icon :{
+		url: markerurl
+	},
   });
   google.maps.event.addListener(marker, 'click', function() {
     infowindow.setContent('<div>'+
