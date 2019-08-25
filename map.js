@@ -103,6 +103,8 @@ function setLocations(map, locations) {
   // Create nice, customised pop-up boxes, to appear when the marker is clicked on
   var infowindow = new google.maps.InfoWindow({
     content: "Content String"
+    maxWidth: 350 ,
+    maxHeight: 400
   });
   for (var i = 0; i < locations.length; i++) {
 	//console.log("in set locations "+locations[i].latitude);
@@ -110,6 +112,7 @@ function setLocations(map, locations) {
 	//console.log("after createmarker "+locations[i].latitude);    
     bounds.extend(new_marker.position);
   }
+  google.maps.event.trigger(map, "resize");	
   map.fitBounds(bounds);
 }
 
