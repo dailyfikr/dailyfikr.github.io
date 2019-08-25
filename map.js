@@ -102,7 +102,7 @@ function setLocations(map, locations) {
   var bounds = new google.maps.LatLngBounds();
   // Create nice, customised pop-up boxes, to appear when the marker is clicked on
   var infowindow = new google.maps.InfoWindow({
-    content: "Content String"
+    content: "Content String",
     maxWidth: 350 ,
     maxHeight: 400
   });
