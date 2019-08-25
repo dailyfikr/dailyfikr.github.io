@@ -130,9 +130,9 @@ function createMarker(map, location, infowindow) {
   });
   google.maps.event.addListener(marker, 'click', function() {
     infowindow.setContent('<div>'+
-    '<p><strong>' + 
-	((location.name === undefined) ? "" : ('<p><strong> Name: </strong>' + location.name + '</p>')) +
-    ((location.address === undefined) ? location.address : ('<a href=https://www.google.com/maps/dir/?api=1&destination="' + location.add +'">' + location.address + '</a>')) + '</strong></p>' +
+    '' + 
+	((location.name === undefined) ? "" : ('<p><strong> Name: ' + location.name + ' </strong></p>')) +
+    ((location.address === undefined) ? location.address : ('<a href=https://www.google.com/maps/dir/?api=1&destination="' + encodeURIComponent(location.address) +'">' + location.address + '</a>')) + '</strong></p>' +
     //((location.db === undefined) ? "" : ('<p><strong>DB: </strong>' + location.db + '</p>')) +
 	//((location.id === undefined) ? "" : ('<p><strong>ID: </strong>' + location.id + '</p>')) +
 	((location.comments === undefined) ? "" : ('<p><strong>Comments: </strong>' + location.comments + '</p>')) +
