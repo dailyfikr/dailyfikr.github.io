@@ -160,7 +160,7 @@ function initialiseMap() {
         var centerControl = new CenterControl(centerControlDiv, map);
 
         centerControlDiv.index = 1;
-        map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);	  
+        map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(centerControlDiv);	  
 	  
 	  
   });
