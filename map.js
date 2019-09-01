@@ -58,7 +58,18 @@ var frisco = {lat: 33.155, lng: -96.818};
         });
 
       }
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
+		  alert(' position is'+pos);
+		  		  map.setCenter(pos);
+				map.setZoom(16);
+        /*infoWindow.setPosition(pos);
+        //infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        //infoWindow.open(map); */
+      }
+	  
 function initialiseMap() {
 	
 	$.urlParam = function(name){
