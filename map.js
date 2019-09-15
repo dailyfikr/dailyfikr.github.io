@@ -57,6 +57,17 @@ var frisco = {lat: 33.0597, lng: -96.7512};
         });
 
       }
+	  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+
+		//  alert(' position is'+pos);
+		  		  map.setCenter(pos);
+				map.setZoom(16);
+        /*infoWindow.setPosition(pos);
+        //infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        //infoWindow.open(map); */
+      }
 
 	  
 function initialiseMap() {
@@ -205,7 +216,7 @@ function createMarker(map, location, infowindow) {
     lat: parseFloat(location.latitude),
     lng: parseFloat(location.longtitude)
   };
-  var markerurl="http://maps.google.com/mapfiles/kml/paddle/"+location.marker+".png";
+  var markerurl="https://maps.google.com/mapfiles/kml/paddle/"+location.marker+".png";
   var marker = new google.maps.Marker({	  
     position: position,
     map: map,
