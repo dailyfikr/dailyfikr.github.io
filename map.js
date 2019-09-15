@@ -1,4 +1,4 @@
-var map;
+var map,infoWindow;
 var locations = [];
 var frisco = {lat: 33.0597, lng: -96.7512};
 
@@ -38,6 +38,7 @@ var frisco = {lat: 33.0597, lng: -96.7512};
         controlUI.addEventListener('click', function() {
           //map.setCenter(chicago);
 			//alert(' in set center ');
+			infoWindow = new google.maps.InfoWindow;
 		    if (navigator.geolocation) {
 				navigator.geolocation.getCurrentPosition(function(position) {
 				var pos = {
@@ -166,6 +167,7 @@ function initialiseMap() {
 		     
       };
       var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+	  infoWindow = new google.maps.InfoWindow;
 	    setLocations(map, res);
         var centerControlDiv = document.createElement('div');
         var centerControl = new CenterControl(centerControlDiv, map);
