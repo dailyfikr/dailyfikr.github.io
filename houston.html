@@ -4,14 +4,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <head>
-<script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=en"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLGdVkQljgks3GZavPHcOWjn0F7G6FWOc&sensor=false&libraries=places&language=en"></script>
 </head>
 <body class="w3-content" style="max-width:1300px">
 <script>
 function createDynamicURL()
 {
     //The variable to be returned
-    var URL='https://dailyfikr.github.io/GH/index.html?key=1acC5wQLa--rbpAn9kiZwKTEWulxquXzmAj9GE9zT';
+    var URL='https://dailyfikr.github.io/houstonmap.html?key=AIzaSyBLGdVkQljgks3GZavPHcOWjn0F7G6FWOc';
     //The variables containing the respective IDs
     var City='';
 	City=document.getElementById("myCity").value;
@@ -59,17 +59,28 @@ function RedirectURL()
 		  <option value="All">All</option>
 		  <option value="Alvin">Alvin</option>
 		  <option value="Atascocita">Atascocita</option>
+		  <option value="Baytown">Baytown</option>
 		  <option value="Beaumont">Beaumont</option>
 		  <option value="Bellaire">Bellaire</option>
+		  <option value="Channelview">Channelview</option>
+		  
+		  
+		  <option value="Crosby">Crosby</option>
+		  
 		  <option value="Cypress">Cypress</option>
+		  
+		  
 	
 		  <option value="Deer Park">Deer Park</option>
 		  <option value="Friendswood">Friendswood</option>
+		  <option value="Hockley">Hockley</option>
 		  <option value="Houston">Houston</option>
-		 
+		  <option value="Huffman">Huffman</option>
+		  
 
 		  <option value="Humble">Humble</option>
 		  <option value="Katy">Katy</option>
+		  <option value="La Porte">La Porte</option>
 		  <option value="Manvel">Manvel</option>	
 		  <option value="Pasadena">Pasadena</option>
 		  
@@ -126,11 +137,12 @@ function RedirectURL()
 		<button onclick="myFunction()">Add Address</button>
    </div>	
   </div>  
-  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
   		<script>
 			function myFunction() {
 			geolocate();	
-			url="https://docs.google.com/forms/d/e/1FAIpQLSdNRuDWQ5MxiSzYF00lahP4yC1VbjtjlIuF88WWtYCywj4i9w/formResponse?&entry.209305317=GH&entry.205737317=New+Address&entry.571342512=";
+//			url="https://docs.google.com/forms/d/e/1FAIpQLSdNRuDWQ5MxiSzYF00lahP4yC1VbjtjlIuF88WWtYCywj4i9w/formResponse?&entry.209305317=GH&entry.205737317=New+Address&entry.571342512=";
+			url="https://docs.google.com/forms/d/e/1FAIpQLSe_TQfBBhpLky9XyTz0SuSsJpcgfF61pS8onUX4RgQxEITOpA/formResponse?&entry.647159166=SAN&entry.607683347=New+Address&entry.781718851=";
 			url=url+document.getElementById('data').value;
 			url=url+"&submit=Submit";
 			//alert(url);
@@ -149,7 +161,15 @@ function RedirectURL()
 			var zip = null;
 			var sub = null;
 			var d = new Date();  
-			var ID = "MAN"+d.getFullYear()+(d.getMonth()+1)+d.getDate()+d.getHours()+d.getMinutes();
+			var temp = null;
+			temp = d.getHours();
+			temp = ("0" + temp).slice(-2);
+			var ID = "MAN"+d.getFullYear()
+				+('0' + (d.getMonth()+1)).slice(-2)
+				+('0' + (d.getDate())).slice(-2)
+				+('0' + (d.getHours())).slice(-2)			
+				+('0' + (d.getMinutes())).slice(-2)
+				+('0' + (d.getSeconds())).slice(-2);
 			var add = newplace.formatted_address;
 			add=add.replace(", USA","");
 			var name =document.getElementById('name').value;
