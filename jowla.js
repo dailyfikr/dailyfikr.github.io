@@ -89,7 +89,7 @@ var spreadsheetid="";
 	var stts=decodeURIComponent($.urlParam('S'));
 	console.log('stts in the url is '+stts);
 	
-		var sql= 'select A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V WHERE M <> \'placemark_circle_highlight\'  ';
+		var sql= 'select A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z WHERE M <> \'placemark_circle_highlight\'  ';
 		var whereClause="";
 		if (city!="null"){			
 			var temp=city.replace("=="," AND H = ");			
@@ -164,7 +164,7 @@ var drawMap = function (error, options, response) {
 							location.visitcode=obj.cellsArray[14];
 							location.comments=obj.cellsArray[15];
 							location.visitdate=obj.cellsArray[16];
-							location.rowid=obj.cellsArray[21];
+							location.rowid=obj.cellsArray[25];
 							locations.push(location);
 		};
 		console.log('locations size in drawmap '+locations.length);
