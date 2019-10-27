@@ -132,7 +132,8 @@ function RedirectURL()
   		<script>
 			function myFunction() {
 			geolocate();	
-			url="https://docs.google.com/forms/d/e/1FAIpQLSc8h_wpXTyUZdUrX7hiTR6EhsQriFGOAyp2NhefezOZdog_mQ/formResponse?&entry.647159166=SAN&entry.607683347=New+Address&entry.1793088592=";
+//			url="https://docs.google.com/forms/d/e/1FAIpQLSc8h_wpXTyUZdUrX7hiTR6EhsQriFGOAyp2NhefezOZdog_mQ/formResponse?&entry.647159166=SAN&entry.607683347=New+Address&entry.1793088592=";
+			url="https://docs.google.com/forms/d/e/1FAIpQLSe_TQfBBhpLky9XyTz0SuSsJpcgfF61pS8onUX4RgQxEITOpA/formResponse?&entry.647159166=SAN&entry.607683347=New+Address&entry.781718851=";
 			url=url+document.getElementById('data').value;
 			url=url+"&submit=Submit";
 			//alert(url);
@@ -183,8 +184,8 @@ function RedirectURL()
 			}
 			if (apt != "")
 			{
-				lat=lat+Math.random()/20000;
-				lng=lng+Math.random()/20000;
+				lat=lat+Math.random()/10000;
+				lng=lng+Math.random()/10000;
 				add= add + " APT "+apt;
 			}
 			//document.getElementById('latitude').value = newplace.geometry.location.lat();
