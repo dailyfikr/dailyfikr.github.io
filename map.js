@@ -147,7 +147,7 @@ function initialiseMap() {
 				addlClause =" AND  sts  like \"%Follow%\"  ";
 			}			
 			if (stts =="W"){
-				addlClause =" AND  sts  like \"%Worker%\"  ";
+				addlClause =" AND  sts  like \"%Week%\"  ";
 			}
 			console.log('clause  is '+addlClause);
 			whereClause += addlClause;
