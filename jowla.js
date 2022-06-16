@@ -132,7 +132,7 @@ var spreadsheetid="";
 		//url: mySpreadsheet,
 		//query: "select A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V where M <> 'placemark_circle_highlight'  ",
 		//query: sql,
-		fetchSize: 5000,
+		fetchSize: 10000,
 		callback: drawMap
 	}
 	);
