@@ -131,11 +131,17 @@ function initialiseMap() {
 		//
 		var sql= 'SELECT name,visitdate,marker,comments,latitude,longtitude, address,db,id, city ,sts,rowid FROM ? where marker <> "placemark_circle_highlight"  ';
 		var whereClause="";
-		if (searchname!="Search"){			
+		if (searchname == "Search"){	
+			/*
 			addlClause =" AND  name like \"%"+searchname+"%\" ";	
 			console.log('name clause  is '+addlClause);
 			whereClause += addlClause;
-		}	  
+			*/
+		}else{
+			addlClause =" AND  name like \"%"+searchname+"%\" ";	
+			console.log('name clause  is '+addlClause);
+			whereClause += addlClause;			
+		}
 		if (city!="null"){			
 			var temp=city.replace("=="," AND city = ");			
 			var addlClause=temp.replace("!="," AND city <> ");	
