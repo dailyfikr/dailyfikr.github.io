@@ -131,7 +131,7 @@ function initialiseMap() {
 		//
 		var sql= 'SELECT name,visitdate,marker,comments,latitude,longtitude, address,db,id, city ,sts,rowid FROM ? where marker <> "placemark_circle_highlight"  ';
 		var whereClause="";
-		if (searchname!="null"){			
+		if (searchname!="Search"){			
 			addlClause =" AND  name like \"%"+searchname+"%\" ";	
 			console.log('name clause  is '+addlClause);
 			whereClause += addlClause;
