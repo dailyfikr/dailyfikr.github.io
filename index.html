@@ -24,6 +24,9 @@ function createDynamicURL()
     if(Status!="All"){
 	  URL+="&S="+Status;
 	}
+	var search='';
+	search=document.getElementById("search").value;
+	URL+="&F="+search;	
 	var Visit='';
 	Visit=document.getElementById("myVisited").value;
     if(Visit!="All"){
@@ -46,8 +49,9 @@ function RedirectURL()
     <div class="w3-padding-4">
       <h2>DFW Jowla Map</h2>
     </div>
+<input type="text" id="search" placeholder="Search" style="width:50%;"  />  <br> 	           
     <div >
-	
+        </br>	
 		<form>
 		<div>
 		City:
