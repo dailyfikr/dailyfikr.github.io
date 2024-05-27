@@ -235,8 +235,7 @@ function createMarker(map, location, infowindow) {
   var marker = new google.maps.Marker({	  
     position: position,
     map: map,
-    title: location.name,
-    label: location.name,	  
+    title: location.name,  
     icon :{
 		url: markerurl,
 		scaledSize: new google.maps.Size(80, 80)
