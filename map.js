@@ -236,9 +236,10 @@ function createMarker(map, location, infowindow) {
     position: position,
     map: map,
     title: location.name,
+    label: location.name,	  
     icon :{
 		url: markerurl,
-		scaledSize: new google.maps.Size(50, 50)
+		scaledSize: new google.maps.Size(80, 80)
 	},
   });
   google.maps.event.addListener(marker, 'click', function() {
