@@ -238,7 +238,7 @@ function createMarker(map, location, infowindow) {
     title: location.name,
     icon :{
 		url: markerurl,
-		scaledSize: new google.maps.Size(30, 30)
+		scaledSize: new google.maps.Size(50, 50)
 	},
   });
   google.maps.event.addListener(marker, 'click', function() {
