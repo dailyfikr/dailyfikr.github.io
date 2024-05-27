@@ -248,7 +248,7 @@ function createMarker(map, location, infowindow) {
     ((location.address === undefined) ? location.address : ('<a href=https://www.google.com/maps/dir/?api=1&destination="' + encodeURIComponent(location.address) +'">' + location.address + '</a>')) + '</strong></p>' +
     //((location.db === undefined) ? "" : ('<p><strong>DB: </strong>' + location.db + '</p>')) +
 	//((location.id === undefined) ? "" : ('<p><strong>ID: </strong>' + location.id + '</p>')) +
-	//((location.comments === undefined) ? "" : ('<p><strong>Comments: </strong>' + location.comments + '</p>')) +
+	((location.comments === undefined) ? "" : ('<p><strong>Comments: </strong>' + location.comments + '</p>')) +
 	((location.visitdate === undefined) ? "" : ('<p><strong>Last Visit Date: </strong>' + location.visitdate + '</p>')) +
 	//((location.sts === undefined) ? "" : ('<p><strong>STATUS: </strong>' + location.sts + '</p>')) +
     ('<a href=https://dailyfikr.github.io/VisitDetails.html?DB='+location.db+'&ID='+location.rowid+'&Name='+encodeURI(location.name)+'&Sts='+encodeURI(location.sts)+' target ="_blank"> Visit Details </a>')+
